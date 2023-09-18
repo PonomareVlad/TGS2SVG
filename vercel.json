@@ -1,4 +1,4 @@
 {
-  "installCommand": "npm run vercel-build && npm i --omit=dev",
+  "installCommand": "yarn run vercel-build && yarn install",
   "buildCommand": "node scripts/build.mjs"
 }
