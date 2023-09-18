@@ -1,0 +1,23 @@
+{
+  "name": "grammy-vercel",
+  "author": "Vladislav Ponomarev <PonomareVlad@users.noreply.github.com> (https://PonomareVlad.ru)",
+  "funding": "https://PonomareVlad.ru/donate",
+  "license": "MIT",
+  "scripts": {
+    "env": "vercel env pull .env",
+    "polling": "npm run env && npm run start",
+    "webhook": "npm run tunnel & vercel dev --listen 3000",
+    "tunnel": "cloudflared tunnel --url http://localhost:3000",
+    "start": "node --watch -r dotenv/config scripts/start.mjs"
+  },
+  "dependencies": {
+    "grammy": "^1.17.1",
+    "vercel-grammy": "^0.1.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": "^18.0.0"
+  }
+}
