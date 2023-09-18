@@ -1,4 +1,5 @@
 import {bot} from "../src/bot.mjs";
 
-// Starts bot in long-polling mode
+bot.catch(console.error);
+
 await bot.start();

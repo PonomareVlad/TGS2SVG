@@ -1,5 +1,5 @@
 {
-  "name": "grammy-vercel",
+  "name": "tgs2svg",
   "author": "Vladislav Ponomarev <PonomareVlad@users.noreply.github.com> (https://PonomareVlad.ru)",
   "funding": "https://PonomareVlad.ru/donate",
   "license": "MIT",
@@ -8,16 +8,22 @@
     "polling": "npm run env && npm run start",
     "webhook": "npm run tunnel & vercel dev --listen 3000",
     "tunnel": "cloudflared tunnel --url http://localhost:3000",
-    "start": "node --watch -r dotenv/config scripts/start.mjs"
+    "start": "node --watch -r dotenv/config scripts/start.mjs",
+    "vercel-build": "yum install gcc-c++ cairo-devel pango-devel libjpeg-turbo-devel giflib-devel"
   },
   "dependencies": {
-    "grammy": "^1.17.1",
-    "vercel-grammy": "^0.1.1"
+    "@grammyjs/files": "^1.0.4",
+    "@roziscoding/grammy-autoquote": "^1.1.2",
+    "canvas": "^2.11.2",
+    "grammy": "^1.18.3",
+    "jsdom": "^22.1.0",
+    "lottie-to-svg": "^1.1.0",
+    "vercel-grammy": "^0.2.0"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"
   },
   "engines": {
-    "node": "^18.0.0"
+    "node": "^16.0.0"
   }
 }
