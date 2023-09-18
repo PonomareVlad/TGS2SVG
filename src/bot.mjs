@@ -4,6 +4,8 @@ import {convert} from "./utils.mjs";
 import {hydrateFiles} from "@grammyjs/files";
 import {autoQuote} from "@roziscoding/grammy-autoquote";
 
+export {token, secretToken} from "./env.mjs";
+
 export const bot = new Bot(token);
 
 bot.use(autoQuote);
