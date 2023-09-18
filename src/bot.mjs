@@ -1,12 +1,8 @@
 import {Bot} from "grammy";
+import {token} from "./env.mjs";
 import {convert} from "./utils.mjs";
 import {hydrateFiles} from "@grammyjs/files";
 import {autoQuote} from "@roziscoding/grammy-autoquote";
-
-export const {
-    TELEGRAM_BOT_TOKEN: token,
-    TELEGRAM_SECRET_TOKEN: secretToken = String(token).split(":").pop()
-} = process.env;
 
 export const bot = new Bot(token);
 
