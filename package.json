@@ -18,7 +18,7 @@
     "grammy": "^1.18.3",
     "jsdom": "^22.1.0",
     "lottie-to-svg": "^1.1.0",
-    "vercel-grammy": "^0.2.0"
+    "vercel-grammy": "^0.2.1"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"
