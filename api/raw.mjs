@@ -1,15 +1,15 @@
-import {unzipSync} from "node:zlib";
 import renderSvg from "lottie-to-svg";
 import {serializeError} from "serialize-error";
+import {unzipSync} from "node:zlib";
 
-export default async ({body}, res) => {
+export default async (req, res) => {
 
     try {
 
-        if (!body) return res.status(415).json({message: "No files provided"});
+        if (!req.body) return res.status(415).json({message: "No files provided"});
 
-        const lottie = JSON.parse(unzipSync(body).toString());
-        const svg = new TextEncoder().encode(await renderSvg(lottie));
+        const lottie = JSON.parse(unzipSync(req.body).toString());
+        const svg = await renderSvg(lottie);
 
         res.setHeader("Content-type", "image/svg+xml");
         res.setHeader("Content-Disposition", `attachment; filename="sticker.svg"`);
