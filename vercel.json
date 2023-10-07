@@ -1,4 +1,0 @@
-{
-  "installCommand": "yarn run vercel-build && yarn install",
-  "buildCommand": "node scripts/build.mjs"
-}

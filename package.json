@@ -4,8 +4,6 @@
   "funding": "https://PonomareVlad.ru/donate",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.11.2",
-    "jsdom": "^22.1.0",
     "lottie-to-svg": "^1.1.0",
     "serialize-error": "^11.0.2"
   },
