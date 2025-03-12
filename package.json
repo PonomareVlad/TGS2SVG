@@ -5,10 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "busboy": "^1.6.0",
-    "lottie-to-svg": "^1.1.0",
+    "lottie-to-svg": "github:PonomareVlad/lottie-to-svg#remove-canvas",
     "serialize-error": "^11.0.2"
-  },
-  "engines": {
-    "node": "22.x"
   }
 }
