@@ -1,0 +1,30 @@
+diff --git a/node_modules/lottie-web/build/player/lottie.js b/node_modules/lottie-web/build/player/lottie.js
+index cddf7ca..7bf38ca 100644
+--- a/node_modules/lottie-web/build/player/lottie.js
++++ b/node_modules/lottie-web/build/player/lottie.js
+@@ -1312,15 +1312,7 @@
+   }();
+ 
+   var ImagePreloader = function () {
+-    var proxyImage = function () {
+-      var canvas = createTag('canvas');
+-      canvas.width = 1;
+-      canvas.height = 1;
+-      var ctx = canvas.getContext('2d');
+-      ctx.fillStyle = 'rgba(0,0,0,0)';
+-      ctx.fillRect(0, 0, 1, 1);
+-      return canvas;
+-    }();
++    var proxyImage = undefined;
+ 
+     function imageLoaded() {
+       this.loadedAssets += 1;
+@@ -13885,7 +13877,7 @@
+   }
+ 
+   extendPrototype([BaseElement, TransformElement, CVBaseElement, HierarchyElement, FrameElement, RenderableElement, ITextElement], CVTextElement);
+-  CVTextElement.prototype.tHelper = createTag('canvas').getContext('2d');
++  CVTextElement.prototype.tHelper = undefined;
+ 
+   CVTextElement.prototype.buildNewText = function () {
+     var documentData = this.textProperty.currentData;
