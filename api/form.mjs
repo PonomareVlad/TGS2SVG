@@ -4,7 +4,7 @@ import renderSvg from "lottie-to-svg";
 
 export default async (req, res) => {
 
-    const {headers, query: {frame = 0}} = req;
+    const {headers, query: {frame = "0"}} = req;
     const bb = busboy({headers, limits: {files: 1}});
 
     let conversion = Promise.resolve();
@@ -25,7 +25,7 @@ export default async (req, res) => {
 async function convert(res, file, frame) {
 
     const lottie = JSON.parse(unzipSync(file).toString());
-    const svg = await renderSvg(lottie, null, frame);
+    const svg = await renderSvg(lottie, null, frame ? parseInt(frame) : null);
 
     res.setHeader("Content-type", "image/svg+xml");
     res.setHeader("Content-Disposition", `attachment; filename="sticker.svg"`);
