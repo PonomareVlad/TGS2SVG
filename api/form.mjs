@@ -4,12 +4,12 @@ import renderSvg from "lottie-to-svg";
 
 export default async (req, res) => {
 
-    const {headers} = req;
+    const {headers, query: {frame = 0}} = req;
     const bb = busboy({headers, limits: {files: 1}});
 
     let conversion = Promise.resolve();
 
-    bb.on("file", (name, file) => conversion = convert(res, file));
+    bb.on("file", (name, file) => conversion = convert(res, file, frame));
     bb.on("close", () => conversion.then(async () => {
         try {
             await res.status(415).json({message: "No files provided"});
@@ -22,10 +22,10 @@ export default async (req, res) => {
 
 }
 
-async function convert(res, file) {
+async function convert(res, file, frame) {
 
     const lottie = JSON.parse(unzipSync(file).toString());
-    const svg = await renderSvg(lottie);
+    const svg = await renderSvg(lottie, null, frame);
 
     res.setHeader("Content-type", "image/svg+xml");
     res.setHeader("Content-Disposition", `attachment; filename="sticker.svg"`);

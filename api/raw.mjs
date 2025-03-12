@@ -6,10 +6,12 @@ export default async (req, res) => {
 
     try {
 
+        const {frame = 0} = req.query
+
         if (!req.body) return res.status(415).json({message: "No files provided"});
 
         const lottie = JSON.parse(unzipSync(req.body).toString());
-        const svg = await renderSvg(lottie);
+        const svg = await renderSvg(lottie, null, frame);
 
         res.setHeader("Content-type", "image/svg+xml");
         res.setHeader("Content-Disposition", `attachment; filename="sticker.svg"`);
